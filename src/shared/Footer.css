@@ -1,0 +1,18 @@
+.footer {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+}
+
+/*Media Queries*/
+@media (min-width: 768px) {
+  .footer__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
