@@ -3,9 +3,9 @@ import { colors } from '../data/colors';
 //Prop pour la personnalisation de couleur et texte
 interface ProductCustomizationProps {
   newText: string;
-  selectedColor: string;
+  selectedColor: number | null;
   quantity: number;
-  onColorChange: (value: string) => void;
+  onColorChange: (value: number) => void;
   onTextChange: (value: string) => void;
   onQuantityChange: (value: number) => void;
 }
@@ -35,9 +35,9 @@ export const ProductCustomization = ({
               <input
                 type="radio"
                 name="color"
-                value={color.value}
-                checked={selectedColor === color.value}
-                onChange={() => onColorChange(color.value)}
+                value={color.id}
+                checked={selectedColor === color.id}
+                onChange={() => onColorChange(color.id)}
               />
               {color.name}
             </label>

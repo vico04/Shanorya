@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { CartItem } from '../../catalog/types/cartItem';
+import { getColorName } from '../../catalog/data/colors';
 
 interface OrderSummaryProps {
   items: CartItem[];
@@ -13,7 +14,7 @@ export const OrderSummary = ({ items, total }: OrderSummaryProps) => {
   const messageItems = items.map((item) => {
     const name = item.name;
     const text = item.text;
-    const color = item.color;
+    const color = getColorName(item.colorId);
     const quantity = item.quantity;
     const subTotal = item.price * item.quantity;
     const message = `Produit : ${name}\nPrénom : ${text}\nCouleur : ${color}\nQuantité : ${quantity}\nSous-total : ${subTotal} €`;
