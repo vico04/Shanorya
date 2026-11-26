@@ -21,7 +21,7 @@ const App = () => {
         (item) =>
           item.productId === cartItem.productId &&
           item.text === cartItem.text &&
-          item.color === cartItem.color,
+          item.colorId === cartItem.colorId,
       );
 
       if (existingItem) {

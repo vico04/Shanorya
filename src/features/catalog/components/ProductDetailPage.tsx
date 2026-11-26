@@ -10,7 +10,7 @@ interface ProductDetailPageProps {
 
 export const ProductDetailPage = ({ onAddToCart }: ProductDetailPageProps) => {
   const { id } = useParams();
-  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedColor, setSelectedColor] = useState<number | null>(null);
   const [newText, setNewText] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [success, setSuccess] = useState('');
@@ -45,7 +45,7 @@ export const ProductDetailPage = ({ onAddToCart }: ProductDetailPageProps) => {
   const handleAddCart = () => {
     setSuccess('');
     setError('');
-    if (newText.trim() === '' || selectedColor === '') {
+    if (newText.trim() === '' || selectedColor === null) {
       setError('Veuillez remplir les champs requis');
       return;
     }
@@ -56,7 +56,7 @@ export const ProductDetailPage = ({ onAddToCart }: ProductDetailPageProps) => {
       name: detail.name,
       price: detail.price,
       text: newText,
-      color: selectedColor,
+      colorId: selectedColor,
       quantity: quantity,
     };
 
@@ -67,15 +67,15 @@ export const ProductDetailPage = ({ onAddToCart }: ProductDetailPageProps) => {
   const handleTextChange = (value: string) => {
     setNewText(value);
 
-    if (value.trim() !== '' && selectedColor !== '') {
+    if (value.trim() !== '' && selectedColor !== null) {
       setError('');
     }
   };
 
-  const handleColorChange = (value: string) => {
+  const handleColorChange = (value: number) => {
     setSelectedColor(value);
 
-    if (newText.trim() !== '' && value !== '') {
+    if (newText.trim() !== '') {
       setError('');
     }
   };

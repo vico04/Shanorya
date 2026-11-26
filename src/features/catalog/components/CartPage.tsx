@@ -1,5 +1,6 @@
 import { OrderSummary } from '../../order/components/OrderSummary';
 import type { CartItem } from '../types/cartItem';
+import { getColorName } from '../data/colors';
 
 interface CartPageProps {
   cartItems: CartItem[];
@@ -26,7 +27,7 @@ export const CartPage = ({ cartItems, deleteCartItem }: CartPageProps) => {
                 <p>{cartItem.name}</p>
                 <p>{cartItem.price} €</p>
                 <p>Personnalisation : {cartItem.text}</p>
-                <p>Couleur : {cartItem.color}</p>
+                <p>Couleur : {getColorName(cartItem.colorId)}</p>
                 <p>Quantité : {cartItem.quantity}</p>
                 <p>Sous-total : {cartItem.price * cartItem.quantity} €</p>
 
