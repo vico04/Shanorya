@@ -50,6 +50,11 @@ export const ProductDetailPage = ({ onAddToCart }: ProductDetailPageProps) => {
       return;
     }
 
+    if (quantity <= 0 || Number.isNaN(quantity)) {
+      setError('Veuillez choisir une quantité supérieure ou égale à 1');
+      return;
+    }
+
     const cartItem: CartItem = {
       id: crypto.randomUUID(),
       productId: detail.id,

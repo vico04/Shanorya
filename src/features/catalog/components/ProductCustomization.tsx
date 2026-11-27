@@ -50,6 +50,7 @@ export const ProductCustomization = ({
         type="number"
         id="personalizationQuantity"
         value={quantity}
+        min={1}
         onChange={(e) => onQuantityChange(parseInt(e.target.value, 10))}
       />
     </>
